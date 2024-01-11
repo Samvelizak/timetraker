@@ -14,21 +14,26 @@ public class SelectingAddOrViewTestCases {
     @DisplayName("Select/TS_/TC_001")
     public void STC_001(){
         driver.findElement(By.id("")).click();
-        Assertions.assertEquals("","");
+       String currentUrl= driver.getCurrentUrl();
+        Assertions.assertEquals(currentUrl,"");
 
     }
     @Test
     @DisplayName("Select/TS_/TC_002")
     public void STC_002(){
         driver.findElement(By.id("")).click();
-        Assertions.assertEquals("","");
+        String currentUrl= driver.getCurrentUrl();
+        Assertions.assertEquals(currentUrl,"");
+
 
     }
     @Test
     @DisplayName("Select/TS_/TC_003")
     public void STC_003(){
         driver.findElement(By.id("")).click();
-        Assertions.assertEquals("","");
+        String currentUrl= driver.getCurrentUrl();
+        Assertions.assertEquals(currentUrl,"");
+
 
     }
     @AfterEach

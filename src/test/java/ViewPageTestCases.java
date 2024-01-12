@@ -6,7 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
 
-public class ViewPageTestCase {
+public class ViewPageTestCases {
     public WebDriver driver = new ChromeDriver();
 
     @BeforeEach

@@ -1,28 +1,13 @@
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.concurrent.TimeUnit;
+
 public class AddProjectTestCases {
-    public WebDriver driver = new ChromeDriver();
-    @BeforeEach
-    public void setUp(){
-        driver.get("");
-    }
-    @Test  //  Test case 1
-
-    public void TC_001(){
-        driver.findElement(By.id("")).sendKeys();
-        driver.findElement(By.id("")).sendKeys();
-        driver.findElement(By.id("")).sendKeys();
-        driver.findElement(By.id("")).sendKeys();
-        driver.findElement(By.id("")).click();
-        Assertions.assertEquals("","");
 
 
-    }
+
 
 }

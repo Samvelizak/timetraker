@@ -27,6 +27,7 @@ public class HomePageTestCases  {
         driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/ul/li[1]/a")).click();
 
 
+
     }
     @Test  //  Test case 1 Vaild Username and Password
     @DisplayName("HomePageTestCases/TS_001/TC_001")
@@ -80,7 +81,7 @@ public class HomePageTestCases  {
     @Test// Test case 4 invalid username and password
     @DisplayName("LoginPage/TS_001/TC_004")
     public void TC_004(){
-        driver.findElement(By.xpath("//*[@id=\"logoutButtonContainer\"]/button")).click();
+        driver.findElement(By.xpath("/html/body/div[2]/div/center/div/a")).click();
 
         try {
             Thread.sleep(2000);
@@ -89,7 +90,7 @@ public class HomePageTestCases  {
         }
 
         String currentUrl=driver.getCurrentUrl();
-        Assertions.assertEquals("http://localhost:57880/home/login", currentUrl);
+        Assertions.assertEquals("http://localhost:57880/", currentUrl);
 
 
     }

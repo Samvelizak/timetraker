@@ -36,19 +36,16 @@ public class AddworkTestCaes {
     }
     @Test  //  Test case 1
     public void TC_003(){
-        driver.findElement(By.xpath("//*[@id=\"loginHere\"]/a")).click();
+        driver.findElement(By.xpath("//*[@id=\"logoutButtonContainer\"]/button")).click();
     }
     @Test  //  Test case 1
     public void TC_004(){
         driver.findElement(By.xpath("//*[@id=\"logoutButtonContainer\"]/button")).click();
     }
-    @Test  //  Test case 1
-    public void TC_005(){
-        driver.findElement(By.xpath("//*[@id=\"logoutButtonContainer\"]/button")).click();
-    }
+
     @Test  //  Test case 1
     public void TC_006() {
-       WebElement element= driver.findElement(By.id("projectName"));
+       WebElement element= driver.findElement(By.id("projectId"));
         Select dropdown= new Select(element);
         dropdown.selectByVisibleText("Project 3");
         String dropDownValue=driver.findElement(By.xpath("//*[@id=\"projectName\"]/option[3]")).getText();
@@ -71,7 +68,11 @@ public class AddworkTestCaes {
         driver.findElement(By.xpath("//*[@id=\"workDate\"]")).sendKeys("24-11-2002");;
         driver.findElement(By.id("hours")).sendKeys("3");
         driver.findElement(By.xpath("/html/body/div[2]/div/form/button")).click();
-        WebDriverWait wait= new WebDriverWait(driver, Duration.ofSeconds(3));
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         Alert alert=driver.switchTo().alert();
         String alertMsg= alert.getText();
         //System.out.println(alertMsg);

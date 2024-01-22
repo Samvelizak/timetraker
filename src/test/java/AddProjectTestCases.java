@@ -40,7 +40,7 @@ public class AddProjectTestCases {
     }
     @Test // not completed
     public void TC_005(){
-        driver.findElement(By.id("projectId")).sendKeys("100");
+        driver.findElement(By.id("projectId")).sendKeys("103");
         driver.findElement(By.id("projectName")).sendKeys("Pro");
         driver.findElement(By.id("projectDescription")).sendKeys("ProDesc");
         driver.findElement(By.id("hoursAllocated")).sendKeys("7");

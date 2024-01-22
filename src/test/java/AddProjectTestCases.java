@@ -4,11 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -45,15 +40,20 @@ public class AddProjectTestCases {
     }
     @Test // not completed
     public void TC_005(){
-        driver.findElement(By.id("projectId")).sendKeys("9");
+        driver.findElement(By.id("projectId")).sendKeys("100");
         driver.findElement(By.id("projectName")).sendKeys("Pro");
         driver.findElement(By.id("projectDescription")).sendKeys("ProDesc");
         driver.findElement(By.id("hoursAllocated")).sendKeys("7");
         driver.findElement(By.xpath("/html/body/div[2]/div/form/button")).click();
-        driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         Alert alert= driver.switchTo().alert();
         String aletMsg= alert.getText();
-        Assertions.assertEquals("Project added sucessfully",aletMsg);
+        alert.accept();
+        Assertions.assertEquals("Project added successfully.",aletMsg);
 
     }
     @Test
@@ -67,31 +67,15 @@ public class AddProjectTestCases {
         Assertions.assertEquals("Please fill out this field.",Msg);
 
     }
-    @Test
-    public void TC_007(){ // not completed
-        driver.findElement(By.id("projectId")).sendKeys("a1");
-        driver.findElement(By.id("projectName")).sendKeys("pro");
-        driver.findElement(By.id("projectDescription")).sendKeys("des");
-        driver.findElement(By.id("hoursAllocated")).sendKeys("b");
-        driver.findElement(By.xpath("/html/body/div[2]/div/form/button")).click();
 
-
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(4));
-        wait.until(ExpectedConditions.alertIsPresent());
-
-        System.out.println(driver.switchTo().alert().getText());
-        //String Msg= driver.findElement(By.id("hoursAllocated")).getAttribute("validationMessage");
-        //Assertions.assertEquals("Please enter a number",Msg);
-
-    }
 
     @Test
-    public void TC_008(){
+    public void TC_007(){
         driver.findElement(By.xpath("/html/body/div[2]/div/p/a")).click();
 
     }
     @Test
-    public void TC_009(){
+    public void TC_008(){
         Boolean flag=false;
 
         driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);

@@ -10,11 +10,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class HomePageTestCases extends BaseClass {
+public class HomePageTestCases  {
     public WebDriver driver = new ChromeDriver();
     @BeforeEach
     public void setUp(){
-        test=reports.createTest("Home page test cases");
+
         driver.get("http://localhost:57880/Home/Login");
         driver.findElement(By.id("userid")).sendKeys("1");
         driver.findElement(By.id("password")).sendKeys("123");
@@ -27,25 +27,20 @@ public class HomePageTestCases extends BaseClass {
         driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/ul/li[1]/a")).click();
 
 
-        System.out.println(driver.getTitle());
-
     }
     @Test  //  Test case 1 Vaild Username and Password
     @DisplayName("HomePageTestCases/TS_001/TC_001")
     public void TC_001(){
         driver.findElement(By.xpath("/html/body/div[1]/div/div[1]/a")).click();
 
-        String currentUrl=driver.getCurrentUrl();
-
-
         try {
-            Assertions.assertEquals("http://localhost:57880/", currentUrl);
-            test.log(Status.PASS, "Expected: DashBorad");
-        } catch (AssertionError e) {
-            test.log(Status.FAIL, "Unexpected: " + currentUrl);
-
-            throw e;
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
+        String currentUrl=driver.getCurrentUrl();
+        Assertions.assertEquals("http://localhost:57880/Home/Index", currentUrl);
+
 
     }
 
@@ -54,54 +49,48 @@ public class HomePageTestCases extends BaseClass {
     public void TC_002(){
         driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/ul/li[1]/a")).click();
 
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         String currentUrl=driver.getCurrentUrl();
 
 
-        try {
-            Assertions.assertEquals("http://localhost:57880/", currentUrl);
-            test.log(Status.PASS, " Expected");
-        } catch (AssertionError e) {
-            test.log(Status.FAIL, "Unexpected: " + currentUrl);
+        Assertions.assertEquals("http://localhost:57880/Home/Index", currentUrl);
 
-            throw e;
-        }
     }
 
     @Test// Test case 3 valid password and invalid password
     @DisplayName("LoginPage/TS_001/TC_003")
     public void TC_003(){
         driver.findElement(By.xpath("//*[@id=\"logoutButtonContainer\"]/button")).click();
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
 
         String currentUrl=driver.getCurrentUrl();
+        Assertions.assertEquals("http://localhost:57880/home/login", currentUrl);
 
-
-        try {
-            Assertions.assertEquals("http://localhost:57880/home/login", currentUrl);
-            test.log(Status.PASS, "expected");
-        } catch (AssertionError e) {
-            test.log(Status.FAIL, "Unexpected: " + currentUrl);
-
-            throw e;
-        }
 
     }
 
     @Test// Test case 4 invalid username and password
     @DisplayName("LoginPage/TS_001/TC_004")
     public void TC_004(){
-        driver.findElement(By.xpath("/html/body/div[2]/div/center/div/a")).click();
-
-        String currentUrl=driver.getCurrentUrl();
-
+        driver.findElement(By.xpath("//*[@id=\"logoutButtonContainer\"]/button")).click();
 
         try {
-            Assertions.assertEquals("http://localhost:57880/Home/Login", currentUrl);
-            test.log(Status.PASS, "expected");
-        } catch (AssertionError e) {
-            test.log(Status.FAIL, "Unexpected: " + currentUrl);
-
-            throw e;
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
+
+        String currentUrl=driver.getCurrentUrl();
+        Assertions.assertEquals("http://localhost:57880/home/login", currentUrl);
+
 
     }
 

@@ -12,11 +12,11 @@ import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 
-public class LoginPageTestCase extends BaseClass{
+public class LoginPageTestCase {
    public WebDriver driver = new ChromeDriver();
     @BeforeEach
     public void setUp(){
-        test=reports.createTest("Login pages test cases");
+
         driver.get("http://localhost:57880/Home/Login");
 
     }
@@ -33,15 +33,8 @@ public class LoginPageTestCase extends BaseClass{
         }
         String titleName=driver.getTitle();
 
-
-        try {
             Assertions.assertEquals("DashBorad", titleName);
-            test.log(Status.PASS, "Title is as expected: DashBorad");
-        } catch (AssertionError e) {
-            test.log(Status.FAIL, "Title is not as expected: " + titleName);
 
-            throw e;
-        }
 
     }
 
@@ -64,14 +57,9 @@ public class LoginPageTestCase extends BaseClass{
         alert.accept();
 
         //System.out.println(alertMsg);
-        try {
-            Assertions.assertEquals("Login failed: Login failed", alertMsg);
-            test.log(Status.PASS, "Expected: Login failed: Login failed");
-        } catch (AssertionError e) {
-            test.log(Status.FAIL, "Unexpected: It should come" + alertMsg);
 
-            throw e;
-        }
+            Assertions.assertEquals("Login failed: Login failed", alertMsg);
+
 
     }
 
@@ -92,14 +80,8 @@ public class LoginPageTestCase extends BaseClass{
         alert.accept();
 
         //System.out.println(alertMsg);
-        try {
-            Assertions.assertEquals("Login failed: Login failed", alertMsg);
-            test.log(Status.PASS, "Expected: Login failed: Login failed");
-        } catch (AssertionError e) {
-            test.log(Status.FAIL, "Unexpected: It should come " + alertMsg);
 
-            throw e;
-        }
+            Assertions.assertEquals("Login failed: Login failed", alertMsg);
 
     }
 
@@ -118,14 +100,8 @@ public class LoginPageTestCase extends BaseClass{
         String alertMsg=alert.getText();
         alert.accept();
         //System.out.println(alertMsg);
-        try {
-            Assertions.assertEquals("Login failed: Login failed", alertMsg);
-            test.log(Status.PASS, "Expected: Login failed: Login failed");
-        } catch (AssertionError e) {
-            test.log(Status.FAIL, "Unexpected: It should come " + alertMsg);
 
-            throw e;
-        }
+            Assertions.assertEquals("Login failed: Login failed", alertMsg);
 
     }
 
@@ -147,14 +123,9 @@ public class LoginPageTestCase extends BaseClass{
         String alertMsg=alert.getText();
         alert.accept();
         //System.out.println(alertMsg);
-        try {
-            Assertions.assertEquals("Login failed: Login failed", alertMsg);
-            test.log(Status.PASS, "Expected: Login failed: Login failed");
-        } catch (AssertionError e) {
-            test.log(Status.FAIL, "Unexpected: It should come" + alertMsg);
 
-            throw e;
-        }
+            Assertions.assertEquals("Login failed: Login failed", alertMsg);
+
 
     }
 
@@ -170,14 +141,9 @@ public class LoginPageTestCase extends BaseClass{
             throw new RuntimeException(e);
         }
         String message = driver.findElement(By.name("userid")).getAttribute("validationMessage");
-        try {
-            Assertions.assertEquals("Please fill out this field.", message);
-            test.log(Status.PASS, "Expected: Please fill out this field.");
-        } catch (AssertionError e) {
-            test.log(Status.FAIL, "Unexpected: " + message);
 
-            throw e;
-        }
+            Assertions.assertEquals("Please fill out this field.", message);
+
 
 
     }
@@ -194,14 +160,9 @@ public class LoginPageTestCase extends BaseClass{
             throw new RuntimeException(e);
         }
         String message = driver.findElement(By.name("password")).getAttribute("validationMessage");
-        try {
-            Assertions.assertEquals("Please fill out this field.", message);
-            test.log(Status.PASS, "Expected: Please fill out this field.");
-        } catch (AssertionError e) {
-            test.log(Status.FAIL, "Unexpected: " + message);
 
-            throw e;
-        }
+            Assertions.assertEquals("Please fill out this field.", message);
+
 
     }
     @Test//Test case 8 leave the password and username empty and click it
@@ -216,14 +177,9 @@ public class LoginPageTestCase extends BaseClass{
             throw new RuntimeException(e);
         }
         String message = driver.findElement(By.name("password")).getAttribute("validationMessage");
-        try {
-            Assertions.assertEquals("Please fill out this field.", message);
-            test.log(Status.PASS, "Expected: Please fill out this field.");
-        } catch (AssertionError e) {
-            test.log(Status.FAIL, "Unexpected: " + message);
 
-            throw e;
-        }
+            Assertions.assertEquals("Please fill out this field.", message);
+
 
     }
 
